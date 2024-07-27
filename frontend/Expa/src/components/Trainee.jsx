@@ -47,12 +47,7 @@ export default function Trainer() {
             </p>
           </div>
           <div>
-            <button
-              type="button"
-              className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Add new session
-            </button>
+            
           </div>
         </div>
         <div className="mt-6 flex flex-col">
@@ -96,11 +91,7 @@ export default function Trainer() {
                         <td className="whitespace-nowrap px-4 py-4">
                           <div className="flex items-center">
                             <div className="h-10 w-10 flex-shrink-0">
-                              <img
-                                className="h-10 w-10 rounded-full object-cover"
-                                src={session.image}
-                                alt={session.sessionName}
-                              />
+                              
                             </div>
                             <div className="ml-4">
                               <div className="text-sm font-medium text-gray-900">{session.sessionName}</div>
