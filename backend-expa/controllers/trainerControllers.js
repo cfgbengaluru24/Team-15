@@ -79,4 +79,56 @@ const getTopTenTrainers = async (req, res) => {
   }
 };
 
+const { MongoClient } = require('mongodb');
+
+async function main() {
+    const uri = "mongodb+srv://022003ayush:ayush123@cluster0.wfbkfrf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"; // replace with your MongoDB connection string
+    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+    try {
+        await client.connect();
+        const database = client.db('test'); // replace with your database name
+        const trainers = database.collection('trainers');
+
+        // Define the courses
+        const courses = ["ethics", "communications", "gender_sensitivity", "critical_thinking"];
+
+        // Query to get all trainers
+        const allTrainers = await trainers.find().toArray();
+
+        // Calculate the rating for each trainer and update their document
+        for (const trainer of allTrainers) {
+            let totalBefore = 0;
+            let totalAfter = 0;
+            let classCount = 0;
+
+            // Loop through each course
+            courses.forEach(course => {
+                const pastClassesForCourse = trainer.past_classes.filter(cls => cls.course === course);
+                pastClassesForCourse.forEach(cls => {
+                    totalBefore += cls.before_average_marks;
+                    totalAfter += cls.after_average_marks;
+                    classCount++;
+                });
+            });
+
+            const improvement = totalAfter - totalBefore;
+            const averageImprovement = (classCount > 0) ? improvement / classCount : 0;
+            const ratingOutOf10 = Math.min(Math.max((averageImprovement / 10) * 10, 0), 10); // Ensuring rating is between 0 and 10
+
+            // Update the average_rating field in the database
+            await trainers.updateOne(
+                { _id: trainer._id },
+                { $set: { average_rating: ratingOutOf10 } }
+            );
+
+            console.log(Updated Trainer: ${trainer.name}, New Rating: ${ratingOutOf10});
+        }
+    } finally {
+        await client.close();
+    }
+}
+
+main().catch(console.error);
+
 export { loginTrainer, registerTrainer, getTopTenTrainers };
