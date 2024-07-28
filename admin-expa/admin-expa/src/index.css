@@ -1,0 +1,76 @@
+/* index.css */
+
+/* body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #333;
+  color: #fff;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul li {
+  padding: 0.5rem;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav .auth-buttons button {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #444;
+  color: #fff;
+  cursor: pointer;
+}
+
+nav .auth-buttons button:hover {
+  background-color: #555;
+}
+
+.home-page .background-image {
+  position: relative;
+  height: 400px;
+  background-image: url('path_to_your_image.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.home-page .background-image p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 2rem;
+  z-index: 1;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #333;
+  color: #fff;
+} */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

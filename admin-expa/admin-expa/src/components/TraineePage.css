@@ -1,0 +1,48 @@
+/* TraineePage.css */
+
+/* Basic styling for the container */
+div {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Styling for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Styling for table headers */
+thead {
+    background-color: #f4f4f4;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Styling for table rows */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Styling for table headers */
+th {
+    background-color: #4CAF50;
+    color: black;
+    font-weight: bold;
+}
+
+/* Styling for the heading */
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
